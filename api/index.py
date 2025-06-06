@@ -137,9 +137,5 @@ def get_history():
     """대화 기록 조회"""
     return jsonify({'history': conversation_history})
 
-# Vercel에서 필요한 handler
-def handler(request):
-    return app(request.environ, start_response)
-
-if __name__ == '__main__':
-    app.run(debug=True) 
+# Vercel에서 Flask 앱을 실행하기 위해 app을 export
+# Vercel은 이 app 변수를 자동으로 감지하고 실행합니다 
